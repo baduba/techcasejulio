@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import psutil
 
 
 app_name = 'comentarios'
