@@ -9,6 +9,12 @@ app.debug = True
 
 comments = {}
 
+@app.route('/health')
+def health_check():
+    return jsonify({
+        "status": "OK",
+        "memory_usage": f"{psutil.Process().memory_info().rss/1024/1024:.2f}MB"
+    })
 
 @app.route('/api/comment/new', methods=['POST'])
 def api_comment_new():
